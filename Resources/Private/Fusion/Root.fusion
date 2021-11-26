@@ -1,0 +1,47 @@
+prototype(Cornelsen.Renderlets.Provider:ConvertUrisRecursively) {
+    @class = 'Cornelsen\\Renderlets\\Provider\\ConvertUrisRecursivelyImplementation'
+    value = ${value}
+    node = ${node}
+}
+
+prototype(Cornelsen.Renderlets.Provider:Renderlet) {
+    @class = 'Cornelsen\\Renderlets\\Provider\\RenderletImplementation'
+    cacheId = ${String.sha1(Math.random())}
+    # array of parameters (key = parameter name, value = true/false for required/optional)
+    parameters = Neos.Fusion:DataStructure
+    renderer = ''
+    contentType = 'text/html'
+    @process.convertUris = Neos.Neos:ConvertUris {
+        absolute = true
+        forceConversion = true
+    }
+    @cache {
+        mode = 'cached'
+        entryIdentifier {
+            node = ${node}
+            parameters = ${String.sha1(Json.stringify(parameters))}
+        }
+        entryTags {
+            renderlet = 'Renderlet'
+        }
+    }
+}
+
+prototype(Cornelsen.Renderlets.Provider:RenderletProps) < prototype(Neos.Fusion:Component) {
+    cacheId = ${String.sha1(Math.random())}
+    parameters = Neos.Fusion:DataStructure
+    properties = Neos.Fusion:DataStructure
+    contentType = 'application/json'
+    renderer.@context.properties = ${props.properties}
+    renderer = Cornelsen.Renderlets.Provider:Renderlet {
+        cacheId = ${props.cacheId}
+        parameters = ${props.parameters}
+        contentType = ${props.contentType}
+        renderer = Neos.Fusion:DataStructure {
+            @apply.props = ${properties}
+            @process.convertUris = Cornelsen.Renderlets.Provider:ConvertUrisRecursively
+            @process.toJson = ${Json.stringify(value)}
+        }
+        @process.convertUris >
+    }
+}

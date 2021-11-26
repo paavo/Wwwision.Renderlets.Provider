@@ -1,0 +1,11 @@
+Neos:
+  Flow:
+    http:
+      middlewares:
+        'Cornelsen.Renderlets.Provider:Endpoint':
+          position: start
+          middleware: Cornelsen\Renderlets\Provider\Middleware
+  Neos:
+    fusion:
+      autoInclude:
+        'Cornelsen.Renderlets.Provider': true
