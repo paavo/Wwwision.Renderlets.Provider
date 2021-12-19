@@ -11,7 +11,7 @@ use Neos\Flow\Annotations as Flow;
 final class RenderletId implements \JsonSerializable
 {
 
-    private const PATTERN = '/^[a-z][a-z\_0-9]*$/';
+    private const PATTERN = '/^[a-z][a-z_0-9]*$/';
 
     private string $value;
 
