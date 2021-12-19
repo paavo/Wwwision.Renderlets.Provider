@@ -47,7 +47,7 @@ final class Renderer
         $controllerContext = new ControllerContext($fakeActionRequest, new ActionResponse(), new Arguments(), $uriBuilder);
 
         $siteNode = $this->getSiteNode($request);
-        $fusionPath = 'renderlet_' . $id->toString();
+        $fusionPath = 'renderlets/' . $id->toString();
 
         $fusionRuntime = $this->fusionService->createRuntime($siteNode, $controllerContext);
         $fusionRuntime->setEnableContentCache(true);

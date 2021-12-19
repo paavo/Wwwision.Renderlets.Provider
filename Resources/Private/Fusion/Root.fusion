@@ -45,3 +45,18 @@ prototype(Cornelsen.Renderlets.Provider:RenderletProps) < prototype(Neos.Fusion:
         @process.convertUris >
     }
 }
+
+# Entry points for renderlets. Every item corresponds to the renderlet it and ought to be an instance of Cornelsen.Renderlets.Provider:Renderlet or Cornelsen.Renderlets.Provider:RenderletProps:
+# renderlets {
+#   some_renderlet = Cornelsen.Renderlets.Provider:Renderlet {
+#     parameters {
+#       someRequiredParameter = true
+#       someOptionalParameter = false
+#     }
+#     renderer = Some.Package:SomeComponent {
+#       someProp = ${parameters.someRequiredParameter}
+#       someOtherProp = ${parameters.someOptionalParameter || 'someDefaultValue'}
+#     }
+#   }
+# }
+renderlets = Neos.Fusion:DataStructure
