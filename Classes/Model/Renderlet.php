@@ -1,9 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Cornelsen\Renderlets\Provider;
+namespace Wwwision\Renderlets\Provider\Model;
 
 use Neos\Flow\Annotations as Flow;
+use Wwwision\Renderlets\Provider\Model\CacheId;
 
 /**
  * @Flow\Proxy(false)

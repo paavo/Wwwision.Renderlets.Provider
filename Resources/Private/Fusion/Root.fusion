@@ -1,11 +1,11 @@
-prototype(Cornelsen.Renderlets.Provider:ConvertUrisRecursively) {
-    @class = 'Cornelsen\\Renderlets\\Provider\\ConvertUrisRecursivelyImplementation'
+prototype(Wwwision.Renderlets.Provider:ConvertUrisRecursively) {
+    @class = 'Wwwision\\Renderlets\\Provider\\Fusion\\ConvertUrisRecursivelyImplementation'
     value = ${value}
     node = ${node}
 }
 
-prototype(Cornelsen.Renderlets.Provider:Renderlet) {
-    @class = 'Cornelsen\\Renderlets\\Provider\\RenderletImplementation'
+prototype(Wwwision.Renderlets.Provider:Renderlet) {
+    @class = 'Wwwision\\Renderlets\\Provider\\Fusion\\RenderletImplementation'
     cacheId = ${String.sha1(Math.random())}
     # array of parameters (key = parameter name, value = true/false for required/optional)
     parameters = Neos.Fusion:DataStructure
@@ -27,28 +27,28 @@ prototype(Cornelsen.Renderlets.Provider:Renderlet) {
     }
 }
 
-prototype(Cornelsen.Renderlets.Provider:RenderletProps) < prototype(Neos.Fusion:Component) {
+prototype(Wwwision.Renderlets.Provider:RenderletProps) < prototype(Neos.Fusion:Component) {
     cacheId = ${String.sha1(Math.random())}
     parameters = Neos.Fusion:DataStructure
     properties = Neos.Fusion:DataStructure
     contentType = 'application/json'
     renderer.@context.properties = ${props.properties}
-    renderer = Cornelsen.Renderlets.Provider:Renderlet {
+    renderer = Wwwision.Renderlets.Provider:Renderlet {
         cacheId = ${props.cacheId}
         parameters = ${props.parameters}
         contentType = ${props.contentType}
         renderer = Neos.Fusion:DataStructure {
             @apply.props = ${properties}
-            @process.convertUris = Cornelsen.Renderlets.Provider:ConvertUrisRecursively
+            @process.convertUris = Wwwision.Renderlets.Provider:ConvertUrisRecursively
             @process.toJson = ${Json.stringify(value)}
         }
         @process.convertUris >
     }
 }
 
-# Entry points for renderlets. Every item corresponds to the renderlet it and ought to be an instance of Cornelsen.Renderlets.Provider:Renderlet or Cornelsen.Renderlets.Provider:RenderletProps:
+# Entry points for renderlets. Every item corresponds to the renderlet it and ought to be an instance of Wwwision.Renderlets.Provider:Renderlet or Wwwision.Renderlets.Provider:RenderletProps:
 # renderlets {
-#   some_renderlet = Cornelsen.Renderlets.Provider:Renderlet {
+#   some_renderlet = Wwwision.Renderlets.Provider:Renderlet {
 #     parameters {
 #       someRequiredParameter = true
 #       someOptionalParameter = false

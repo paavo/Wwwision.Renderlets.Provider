@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Cornelsen\Renderlets\Provider;
+namespace Wwwision\Renderlets\Provider\Fusion;
 
 use Neos\Flow\Annotations as Flow;
 use Neos\Fusion\FusionObjects\AbstractFusionObject;

@@ -2,10 +2,10 @@ Neos:
   Flow:
     http:
       middlewares:
-        'Cornelsen.Renderlets.Provider:Endpoint':
+        'Wwwision.Renderlets.Provider:Endpoint':
           position: start
-          middleware: Cornelsen\Renderlets\Provider\Middleware
+          middleware: Wwwision\Renderlets\Provider\Http\Middleware
   Neos:
     fusion:
       autoInclude:
-        'Cornelsen.Renderlets.Provider': true
+        'Wwwision.Renderlets.Provider': true

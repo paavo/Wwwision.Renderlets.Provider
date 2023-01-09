@@ -1,7 +1,7 @@
 {
-    "description": "Neos package to provide snippets of data/rendered content (aka 'renderlets') to be consumed by Cornelsen.Renderlets.Consumer",
+    "description": "Neos package to provide snippets of data/rendered content (aka 'renderlets') to be consumed by Wwwision.Renderlets.Consumer",
     "type": "neos-package",
-    "name": "cornelsen/renderlets-provider",
+    "name": "wwwision/renderlets-provider",
     "require": {
         "neos/neos": "^5.0 || ^7.0"
     },
@@ -10,12 +10,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Cornelsen\\Renderlets\\Provider\\": "Classes/"
+            "Wwwision\\Renderlets\\Provider\\": "Classes/"
         }
     },
     "extra": {
         "neos": {
-            "package-key": "Cornelsen.Renderlets.Provider"
+            "package-key": "Wwwision.Renderlets.Provider"
         }
     }
 }

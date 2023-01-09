@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace Cornelsen\Renderlets\Provider;
+namespace Wwwision\Renderlets\Provider;
 
-use Cornelsen\Renderlets\Provider\Exception\FailedToRenderRenderlet;
-use Cornelsen\Renderlets\Provider\Exception\InvalidRenderletId;
-use Cornelsen\Renderlets\Provider\Exception\MissingRenderletParameter;
-use Cornelsen\Renderlets\Provider\Exception\UnknownRenderletParameters;
+use Wwwision\Renderlets\Provider\Exception\FailedToRenderRenderlet;
+use Wwwision\Renderlets\Provider\Exception\InvalidRenderletId;
+use Wwwision\Renderlets\Provider\Exception\MissingRenderletParameter;
+use Wwwision\Renderlets\Provider\Exception\UnknownRenderletParameters;
 use Neos\ContentRepository\Domain\Projection\Content\TraversableNodeInterface;
 use Neos\ContentRepository\Domain\Service\ContextFactoryInterface;
 use Neos\Flow\Annotations as Flow;
@@ -20,6 +20,8 @@ use Neos\Fusion\Exception\RuntimeException as FusionRuntimeException;
 use Neos\Neos\Domain\Service\ContentContext;
 use Neos\Neos\Domain\Service\FusionService;
 use Psr\Http\Message\ServerRequestInterface;
+use Wwwision\Renderlets\Provider\Model\Renderlet;
+use Wwwision\Renderlets\Provider\Model\RenderletId;
 
 /**
  * @Flow\Scope("singleton")

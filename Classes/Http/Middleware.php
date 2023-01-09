@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace Cornelsen\Renderlets\Provider;
+namespace Wwwision\Renderlets\Provider\Http;
 
-use Cornelsen\Renderlets\Provider\Exception\InvalidRenderletId;
-use Cornelsen\Renderlets\Provider\Exception\MissingRenderletParameter;
-use Cornelsen\Renderlets\Provider\Exception\UnknownRenderletParameters;
+use Wwwision\Renderlets\Provider\Exception\InvalidRenderletId;
+use Wwwision\Renderlets\Provider\Exception\MissingRenderletParameter;
+use Wwwision\Renderlets\Provider\Exception\UnknownRenderletParameters;
 use GuzzleHttp\Psr7\Response;
 use Neos\Flow\Mvc\ActionRequest;
 use Neos\Flow\Security\Context;
@@ -13,6 +13,8 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
+use Wwwision\Renderlets\Provider\Model\RenderletId;
+use Wwwision\Renderlets\Provider\Renderer;
 
 final class Middleware implements MiddlewareInterface
 {

@@ -1,11 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace Cornelsen\Renderlets\Provider;
+namespace Wwwision\Renderlets\Provider\Fusion;
 
-use Cornelsen\Renderlets\Provider\Exception\MissingRenderletParameter;
-use Cornelsen\Renderlets\Provider\Exception\UnknownRenderletParameters;
+use Wwwision\Renderlets\Provider\Exception\MissingRenderletParameter;
+use Wwwision\Renderlets\Provider\Exception\UnknownRenderletParameters;
 use Neos\Fusion\FusionObjects\AbstractFusionObject;
+use Wwwision\Renderlets\Provider\Model\CacheId;
+use Wwwision\Renderlets\Provider\Model\Renderlet;
 
 final class RenderletImplementation extends AbstractFusionObject
 {
