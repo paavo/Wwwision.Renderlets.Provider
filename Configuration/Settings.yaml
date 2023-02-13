@@ -3,7 +3,7 @@ Neos:
     http:
       middlewares:
         'Wwwision.Renderlets.Provider:Endpoint':
-          position: start
+          position: 'after routing'
           middleware: Wwwision\Renderlets\Provider\Http\Middleware
   Neos:
     fusion:
