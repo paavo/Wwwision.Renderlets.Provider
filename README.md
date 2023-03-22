@@ -1,6 +1,6 @@
 # Wwwision.Renderlets.Provider
 
-Neos package to provide snippets of data/rendered content (aka 'renderlets') to be consumed by Cornelsen.Renderlets.Consumer
+Neos package to provide snippets of data/rendered content (aka 'renderlets') to be consumed by 3rd parties
 
 ## Installation
 
