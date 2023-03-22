@@ -55,8 +55,8 @@ final class Middleware implements MiddlewareInterface
             return new Response(400, [], $exception->getMessage());
         }
         if ($request->hasHeader('If-None-Match') && $request->getHeaderLine('If-None-Match') === $renderlet->cacheId->toString()) {
-            return new Response(304);
+            return new Response(304, $renderlet->httpHeaders);
         }
-        return new Response(200, ['Content-Type' => $renderlet->contentType, 'ETag' => $renderlet->cacheId->toString()], $renderlet->content);
+        return new Response(200, array_merge($renderlet->httpHeaders, ['ETag' => $renderlet->cacheId->toString()]), $renderlet->content);
     }
 }

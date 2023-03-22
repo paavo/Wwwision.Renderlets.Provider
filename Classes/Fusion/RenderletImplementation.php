@@ -21,9 +21,9 @@ final class RenderletImplementation extends AbstractFusionObject
         return $this->fusionValue('parameters');
     }
 
-    private function contentType(): string
+    private function httpHeaders(): array
     {
-        return $this->fusionValue('contentType');
+        return $this->fusionValue('httpHeaders');
     }
 
     public function evaluate(): string
@@ -42,10 +42,10 @@ final class RenderletImplementation extends AbstractFusionObject
         $this->runtime->pushContextArray($context);
         $content = $this->runtime->render($this->path . '/renderer');
         $this->runtime->popContext();
-        return Renderlet::fromContentCacheIdAndContentType(
+        return Renderlet::fromContentCacheIdAndHttpHeaders(
             $content,
             $this->cacheId(),
-            $this->contentType()
+            $this->httpHeaders()
         )->toJson();
     }
 }

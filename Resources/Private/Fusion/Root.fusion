@@ -10,7 +10,11 @@ prototype(Wwwision.Renderlets.Provider:Renderlet) {
     # array of parameters (key = parameter name, value = true/false for required/optional)
     parameters = Neos.Fusion:DataStructure
     renderer = ''
-    contentType = 'text/html'
+    httpHeaders = Neos.Fusion:DataStructure {
+        'Content-Type' = 'text/html'
+        'Access-Control-Allow-Origin' = '*'
+    }
+
     @process.convertUris = Neos.Neos:ConvertUris {
         absolute = true
         forceConversion = true
@@ -31,12 +35,15 @@ prototype(Wwwision.Renderlets.Provider:RenderletProps) < prototype(Neos.Fusion:C
     cacheId = ${String.sha1(Math.random())}
     parameters = Neos.Fusion:DataStructure
     properties = Neos.Fusion:DataStructure
-    contentType = 'application/json'
+    httpHeaders = Neos.Fusion:DataStructure {
+        'Content-Type' = 'application/json'
+        'Access-Control-Allow-Origin' = '*'
+    }
     renderer.@context.properties = ${props.properties}
     renderer = Wwwision.Renderlets.Provider:Renderlet {
         cacheId = ${props.cacheId}
         parameters = ${props.parameters}
-        contentType = ${props.contentType}
+        httpHeaders = ${props.httpHeaders}
         renderer = Neos.Fusion:DataStructure {
             @apply.props = ${properties}
             @process.convertUris = Wwwision.Renderlets.Provider:ConvertUrisRecursively
