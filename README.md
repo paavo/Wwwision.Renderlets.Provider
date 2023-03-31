@@ -20,7 +20,7 @@ renderlets {
 }
 ```
 
-With this in place, the renderlet is exposed via HTTP on the endpoint `/__renderlets/some_renderlet`
+With this in place, the renderlet is exposed via HTTP on the endpoint `/__renderlet/some_renderlet`
 
 ### Caching
 
@@ -115,7 +115,7 @@ some_renderlet_props = Wwwision.Renderlets.Provider:RenderletProps {
 }
 ```
 
-This will render the following JSON on the endpoint `/__renderlets/some_renderlet_props`:
+This will render the following JSON on the endpoint `/__renderlet/some_renderlet_props`:
 
 ```json
 {
